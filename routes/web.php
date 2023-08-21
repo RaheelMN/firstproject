@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/please/{n}/{a}', function (string $name,int $age) {
+    if($name){
+        echo "<br>Welcome $name";
+        if($age){
+            if($age < 20){
+                echo "<br>Sorry we cannot serve you drinks";  
+            }else{
+                echo "<br>We have nice collection of drinks.";
+            }
+        }
+    }else{
+        echo "<br>Welcome guest!";
+    }
+        
+})->whereAlpha('n')->whereNumber('a');
+
+// Route::view("/please/{n?}","test");
