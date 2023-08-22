@@ -1,0 +1,46 @@
+a{
+    text-decoration: none;
+    padding: 0px 10px;
+}
+
+li{
+    padding: 10px 0px;
+    list-style-type: none;
+}
+
+footer{
+    text-align: center;
+    color: rgb(239, 233, 233);
+    margin: 3px 0px 0px 0px;
+    padding: 6px 0px;
+    background-color: blueviolet;
+}
+
+header{
+    text-align: center;
+    color: rgb(239, 233, 233);
+    padding: 14px 0px;
+    background-color: blueviolet;
+    font-size: 20px;
+}
+main{
+    display: flex;
+}
+article{
+    width: 85%;
+}
+
+nav{
+    background-color: rgb(178 119 233);
+    padding: 8px 10px;
+    font-size: 17px;
+    font-family: math;
+}
+aside{
+    background-color: rgb(178 119 233);
+    width: 15%;
+    text-align: left;
+    padding: 5px 0px;
+    font-size: 19px;
+    font-family: math;
+}

@@ -1,21 +1,11 @@
-<?php
+@extends('layouts.masterlayout')
 
-    echo "<pre>";
-    print_r($_SERVER);
-    echo "<pre>";
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>first project</title>
-</head>
-<body>
+@section('contents')
     <h2>testing route</h2>
-    <p>my url is 127.0.0.1:8000/please</p>
-</body>
-</html>
+    <p>my url is {{$_SERVER['APP_URL'].":".$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI']}} </p>
+@endsection
+
+@section('title')
+    {{' - Test'}}
+@endsection
+
