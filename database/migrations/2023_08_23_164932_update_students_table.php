@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::rename('students','studentss');
-        Schema::drop('users');
+        Schema::table('students', function (Blueprint $table) {
+            $table->foreign('city')->references('ct_id')->on('cities')
+            ->onDelete('set null')->onUpdate('cascade');
+        });
     }
 
     /**
@@ -20,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('students', function (Blueprint $table) {
+            //
+        });
     }
 };

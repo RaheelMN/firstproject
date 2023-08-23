@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('name',50);
             $table->string('email',50)->unique();
             $table->integer('age')->comment('age > 20');
-            $table->string('city',50)->default('peshawar');
-            $table->primary('st_id');
+            $table->unsignedBigInteger('city')->nullable();
         });
     }
 
