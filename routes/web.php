@@ -54,7 +54,7 @@ use Illuminate\Support\Facades\Route;
 //If page name in URI has been changed then redirect host request to new URI
 //Status code tell search engine that change is permanent and update its cache
 //Where as 301 means redirect is temporary
-// Route::redirect('/redirect','/testing',301);
+// Route::redirect('http://localbost:8000/user/css/style.css','/css/style.css',301);
 
 
 //If folder in URI has multiple subfolders then we can use group route
@@ -69,21 +69,51 @@ use Illuminate\Support\Facades\Route;
 //     });
 // });
 
+use App\Http\Controllers\userController;
+use App\Http\Controllers\testController;
 
-//if uri has slash then open welcome page in view folder
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/',[userController::class,'homepage']);
+// Route::get('/users',[userController::class,'users']);
+// Route::get('/user/{id}',[userController::class,'user'])->name('view.user');
+// Route::get('/AboutUs',[userController::class,'about']);
+
+//To prevent writing userController::class in each route for same class
+//we use group
+Route::controller(userController::class)->group(function(){
+    Route::get('/','homepage')->name('home');
+    Route::get('/users','users')->name('users');
+    Route::get('/user/{id}','user')->name('user');
+    Route::get('/AboutUs','about')->name('about');    
 });
+
+//single method class controller doesnot need method name as magic method __invoke is used
+Route::get('/testing',testController::class)->name('test_name');
+
+
+
+// function getData(){
+//     return [1 => ['name'=>'raheel','age'=>33,'city'=>'peshawar'],
+//             2 => ['name'=>'hamid','age'=>43,'city'=>'islamabad'],
+//             3 => ['name'=>'idrees','age'=>35,'city'=>'peshawar'],   
+//             4 => ['name'=>'bilal','age'=>36,'city'=>'quetta'],   
+//             5 => ['name'=>'sareer','age'=>24,'city'=>'karachi'],   
+//             6 => ['name'=>'junaid','age'=>35,'city'=>'karak'],   
+//              ];
+// }
+//if uri has slash then open welcome page in view folder
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //If URI is /AboutUs then open about page in view folder
-Route::get('/AboutUs',function(){
-    return view('about');
-});
+// Route::get('/AboutUs',function(){
+//     return view('about');
+// });
 
 //If URI is /Testing then open test page in view folder
-Route::get('/Testing',function(){
-    return view('test');
-});
+// Route::get('/Testing',function(){
+//     return view('test');
+// });
 
 Route::get('/blade_template',function(){
     return view('blade');
@@ -92,3 +122,16 @@ Route::get('/blade_template',function(){
 Route::get('/rough',function(){
     return view('rough');
 });
+
+// Route::get('/users',function(){
+//     $data = getData();
+//     return view('/users')->with('name','raheel')->with('data',$data);
+// });
+
+// Route::get('/user/{id}',function(int $id){
+//     $data = getData();
+//     abort_if(!isset($data[$id]),404);
+//     $user = $data[$id];
+//     return view('/user')->with('record',$user);
+// })->name('view.user');
+

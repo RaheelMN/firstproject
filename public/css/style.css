@@ -44,3 +44,22 @@ aside{
     font-size: 19px;
     font-family: math;
 }
+
+table{
+    text-align: center;
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+tr{
+    border: 1px solid grey;
+    height: 35px;
+}
+
+thead{
+    background-color: rgb(49, 92, 92);
+    color: aliceblue;
+    font-family: system-ui;
+}

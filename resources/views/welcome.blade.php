@@ -16,3 +16,7 @@
         <li>Added Tasks</li>
     </ul>
 @endsection
+
+{{-- @push('script')
+    <script src="/example.js"></script>
+@endpush --}}
