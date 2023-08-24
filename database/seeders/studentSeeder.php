@@ -14,17 +14,29 @@ class studentSeeder extends Seeder
      */
     public function run(): void
     {
-        $json = File::get(path:'database/json/students.json');
-        $records = collect(json_decode($json,true));
+        //Production data
+        // $json = File::get(path:'database/json/students.json');
+        // $records = collect(json_decode($json,true));
 
-        //each method is part of collect
-        $records->each(function($record){
+        // //each method is part of collect
+        // $records->each(function($record){
+        //     student::create([
+        //         'name'=>$record['name'],
+        //         'email'=>$record['email'],
+        //         'age'=>$record['age'],
+        //         'city'=>$record['city'],
+        //     ]);
+        // }); 
+        
+        
+        //Development data using faker
+        for($i=1;$i<10;$i++){
             student::create([
-                'name'=>$record['name'],
-                'email'=>$record['email'],
-                'age'=>$record['age'],
-                'city'=>$record['city'],
+                'name'=>fake()->city(),
+                'email'=>fake()->unique()->email(),
+                'age'=>rand(20,40),
+                'city'=>rand(1,10)
             ]);
-        });        
+        }        
     }
 }

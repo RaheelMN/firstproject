@@ -14,15 +14,23 @@ class citySeeder extends Seeder
      */
     public function run(): void
     { 
-        $json = File::get(path:'database/json/cities.json');
-        $records = collect(json_decode($json,true));
+        //Production data
+        // $json = File::get(path:'database/json/cities.json');
+        // $records = collect(json_decode($json,true));
 
         //each method is part of collect
-        $records->each(function($record){
+        // $records->each(function($record){
+        //     city::create([
+        //         'ct_name'=>$record['ct_name']
+        //     ]);
+        // });
+
+        //Development data using faker
+        for($i=1;$i<10;$i++){
             city::create([
-                'ct_name'=>$record['ct_name']
+                'ct_name'=>fake()->city(),
             ]);
-        });
+        }
 
     }
 }
