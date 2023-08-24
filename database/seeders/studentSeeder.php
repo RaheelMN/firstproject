@@ -29,14 +29,8 @@ class studentSeeder extends Seeder
         // }); 
         
         
-        //Development data using faker
-        for($i=1;$i<10;$i++){
-            student::create([
-                'name'=>fake()->city(),
-                'email'=>fake()->unique()->email(),
-                'age'=>rand(20,40),
-                'city'=>rand(1,10)
-            ]);
-        }        
+        //Development data using faker in factory
+        student::factory(20)->create();
+     
     }
 }

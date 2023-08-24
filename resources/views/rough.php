@@ -1,33 +1,42 @@
-<?php
 
-echo "<br> hello this is rough";
-$var = null;
-$result = isset($var)? "<br> value of var is $var" :  "var is null";
-echo "<br> $result";
-$arr = ['raheel','mansoor','khan'];
-if(isset($arr[4])){
-    $ans = $arr[4];
-    echo "<br> ans : ".var_dump($ans);
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> 
+
 </head>
 <body>
-    <ul>
-        <?php
-            foreach($arr as $key){
-                echo "<li>name is $key </li>";
-            }
-        ?>
-    </ul>
+    <table class = "table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th> S.No           </th>
+                <th>   Name         </th>
+                <th>   Age         </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Raheel</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ikram</td>
+                <td>22</td>
+            </tr>
+        </tbody>
+
+
+    </table>
+
 </body>
 <script>
-    debugger;
+
     
     var vname = 'v raheel';
     let lname = 'l raheel';
@@ -38,7 +47,7 @@ if(isset($arr[4])){
     document.body.innerHTML+=output;
 </script>
 <script>
-    debugger;
+
 
 </script>
 </html>

@@ -25,12 +25,8 @@ class citySeeder extends Seeder
         //     ]);
         // });
 
-        //Development data using faker
-        for($i=1;$i<10;$i++){
-            city::create([
-                'ct_name'=>fake()->city(),
-            ]);
-        }
+        //Development data using faker in factory
+            city::factory(20)->create();
 
     }
 }
